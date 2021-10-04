@@ -1,0 +1,22 @@
+{
+    "name": "sanjeev/mongodb",
+    "description": "Extension Library for MongoDb Functions",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sanjeev Aasoori",
+            "email": "sanjeev.a.rangaswamy@gmail.com"
+        }
+    ],
+    "version" : "1.0.0",
+    "require": {
+        "php": ">=7.0.0",
+        "mongodb/mongodb": "^1.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sanjeev\\Custom\\": "src"
+        }
+    }
+}
