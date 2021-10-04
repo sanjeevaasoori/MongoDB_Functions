@@ -133,7 +133,7 @@ class MongoDB_Functions
 			return null;
 		}
 	}
-	public function fetchOne($arg, ?array $projection = null, ?int $limit = null, ?int $skip = null, ?array $sort = null): ?array
+	public function fetchOne(array $arg = [], ?array $projection = null, ?int $limit = null, ?int $skip = null, ?array $sort = null): ?array
 	{
 		try {
 			if ($this->_debug) {
@@ -146,13 +146,13 @@ class MongoDB_Functions
 			} else {
 				$result = $this->_collection->findOne($arg, $sorting);
 			}
-			return $result;
+			return ($result instanceof \MongoDB\Model\BSONDocument) ? iterator_to_array($result) : $result;
 		} catch (Exception $e) {
 			$this->message = $e->getMessage();
 			return null;
 		}
 	}
-	public function update($cond = [], $args): ?int
+	public function update($args, $cond = []): ?int
 	{
 		try {
 			if ($this->_debug) {
